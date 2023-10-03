@@ -26,6 +26,6 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 streamlit.text(fruityvice_response.json())
 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-
+# dataframe will put the info in a table
 streamlit.dataframe(fruityvice_normalized)
 
