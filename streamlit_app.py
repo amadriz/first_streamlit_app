@@ -1,3 +1,4 @@
+
 import streamlit
 import pandas
 import requests
@@ -24,6 +25,8 @@ streamlit.dataframe(my_fruit_list)
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 
+fruit_choice = streamlit.text_input('What fruit would yo like info about?', 'kiwi')
+streamlit.write('The user entered', fruit_choice)
 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # dataframe will put the info in a table
