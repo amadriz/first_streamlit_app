@@ -18,6 +18,10 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 # fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries','Banana'])
 # fruits_to_show = my_fruit_list.loc[fruits_selected]
 
+# Input 
+fruit_choice = streamlit.text_input('What fruit would yo like info about?', 'kiwi')
+streamlit.write('The user entered', fruit_choice)
+
 
 # Display the table
 streamlit.dataframe(my_fruit_list)
@@ -25,12 +29,13 @@ streamlit.dataframe(my_fruit_list)
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 
-fruit_choice = streamlit.text_input('What fruit would yo like info about?', 'kiwi')
-streamlit.write('The user entered', fruit_choice)
-
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # dataframe will put the info in a table
 streamlit.dataframe(fruityvice_normalized)
+
+# Input 
+add_fruit = streamlit.text_input('What fruit would you like to add?', 'jackfruit')
+streamlit.write('The user entered', add_fruit)
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
