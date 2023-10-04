@@ -28,8 +28,8 @@ except URLError as e:
   streamlit.error()
 
 # Display the table
-# streamlit.dataframe(my_fruit_list)
-# streamlit.dataframe(fruit_to_show)
+streamlit.dataframe(my_fruit_list)
+streamlit.dataframe(fruit_to_show)
 
 
 
